@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="json"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['line'] });
+        /*let date = [
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 },
+            { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }, { time: 0, id: 1, volume: 0, co2: 0, temp: 0 }
+        ]
+        for (i = 0; i < 60; i++) {
+            date[i].time = new Date(2021, 9, 10, 16, i, 0, 0)
+            date[i].volume = Math.floor(Math.random() * 100)
+            date[i].temp = 16 + Math.floor(Math.random() * 10)
+            date[i].co2 = 400 + Math.floor(Math.random() * 1000)
+        }
+        */
+        let length = 0
+        /*getLength()
+        function getLength() {
+            fetch(`http://localhost:5000/weather/length`) // 
+                .then(response => response.json())
+                .then(data => a(data));
+        } */
+        let input = []
+        function graphing() {
+            for (i = 0; i < 7; i++) {
+                input[i] = document.querySelectorAll("input")[i].value
+                input[i] = parseInt(input[i]) // 0-4 is modifier of values 5 is for the amount of data point, 6 is for sorting
+            }
+            getLength()
+
+            //if (input[5] > maxLength) input[5] = maxLength
+
+            fetch(`http://localhost:5000/weather/${input[6]}/${input[5]}`) // where you get the data (use simons api)
+                .then(response => response.json())
+                .then(data => draw(data));
+        }
+        /*function a(length) {
+            maxLength = length[0].count
+        } */
+
+        function draw(data) {
+            delete data[0].id
+            var keys = Object.keys(data[0])
+            for (i = 0; i < data.length; i++) {
+                delete data[i].id // id is not usefull
+                data[i] = Object.values(data[i]) // convet dictionary to array
+                data[i][0] = new Date(data[i][0].substring(0, 19) + "+0000") // convert timestamp in to local time in js date down to seconds in prescision 
+                for (j = 1; j < 6; j++) {
+                    if (data[i][j] !== null) data[i][j] *= input[j - 1] // amplify all data points except null
+                }
+            }
+            console.log(data)
+            google.charts.setOnLoadCallback(drawChart(data, keys));
+        }
+        function drawChart(data, keys) {
+            var graph = new google.visualization.DataTable();
+            graph.addColumn('date', keys[0]);
+            for (i = 1; i < keys.length; i++) {
+                graph.addColumn('number', keys[i]);
+            }
+            graph.addRows(data);
+
+            var options = {
+                interpolateNulls: true,
+                explorer: {
+                    actions: ['dragToZoom', 'rightClickToReset'],
+                    axis: 'horizontal',
+                    keepInBounds: true,
+                    maxZoomIn: 4.0
+                },
+                width: 900,
+                height: 500
+            };
+
+            var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+            chart.draw(graph, google.charts.Line.convertOptions(options));
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <div id="linechart_material"></div>
+        <input id="volume" type="number" value="5">
+        <input id="ligth" type="number" value="10">
+        <input id="co2" type="number" value="20">
+        <input id="temp" type="number" value="1000">
+        <input id="humidity" type="number" value="1000">
+    </div>
+    <input type="number" value="10000">
+    <input type="number" value="20">
+    <button onclick="graphing()"> draw</button>
+
+</body>
+<style>
+    #linechart_material {
+        width: 900px;
+        height: 500px;
+    }
+
+    #volume {
+        background-color: #4285f4;
+    }
+
+    #ligth {
+        background-color: #d41734;
+    }
+
+    #co2 {
+        background-color: #fccc00;
+    }
+
+    #temp {
+        background-color: #0f9d58;
+    }
+
+    #humidity {
+        background-color: #ab47bc;
+    }
+</style>
+
+</html>
